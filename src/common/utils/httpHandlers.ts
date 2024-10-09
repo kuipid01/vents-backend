@@ -4,8 +4,10 @@ import type { ZodError, ZodSchema } from "zod";
 
 import { ServiceResponse } from "@/common/models/serviceResponse";
 
-export const handleServiceResponse = (serviceResponse: ServiceResponse<any>, response: Response) => {
-  return response.status(serviceResponse.statusCode).send(serviceResponse);
+export const handleServiceResponse = (serviceResponse: void | ServiceResponse<any>, response?: Response) => {
+  if(!response) return
+  if(serviceResponse)
+ { return response.status(serviceResponse.statusCode).send(serviceResponse)};
 };
 
 export const validateRequest = (schema: ZodSchema) => (req: Request, res: Response, next: NextFunction) => {
