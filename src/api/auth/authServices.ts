@@ -162,7 +162,7 @@ async protectRoute(req: Request, res: Response,next:NextFunction):Promise<Servic
     } else if (req.cookies.accessToken) {
       token = req.cookies.accessToken;
     }
-  
+  console.log(req.headers.authorization ,req.cookies)
     if (!token) {
       return  ServiceResponse.failure('You are not logged in! Please log in to get access.',null, StatusCodes.BAD_REQUEST)
       
@@ -183,6 +183,7 @@ else {
     const decoded = await promisifiedJwt(token, process.env.JWT_SECRET!) as JwtPayload;
     // 3) Check if user still exists
     const currentUser = await User.findById(decoded.id);
+    console.log(currentUser)
     if (!currentUser) {
       return ServiceResponse.failure(
           'The user belonging to this token does no longer exist.',null,

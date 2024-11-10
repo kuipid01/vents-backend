@@ -8,7 +8,7 @@ export async function generateQRCode(req:Request, event:IEvent) {
       const protocol = req.protocol; // e.g., http or https
   
       // Generate the QR code URL dynamically
-      const frontendUrl = `${protocol}://${host}/user/${event._id}`;
+      const frontendUrl = `${protocol}://${host}/user/${event._id}/`;
   
       // Customize QR code options
       const options = {

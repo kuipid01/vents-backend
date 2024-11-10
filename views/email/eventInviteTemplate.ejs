@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Invitation</title>
+  </head>
+  <body style="font-family: Arial, sans-serif">
+    <h2>You have been added to an event!</h2>
+    <p>Hello,</p>
+    <p>
+      You’ve been added to an event. Please use the link below to access the
+      event and scan your personalized QR code for verification:
+    </p>
+
+    <p><a href="<%= link %>" target="_blank">Access Event</a></p>
+
+    <p>Your QR Code:</p>
+    <img
+      src="<%= qrCodeUrl %>"
+      alt="Your QR Code"
+      style="width: 150px; height: 150px"
+    />
+
+    <p>Thank you!</p>
+  </body>
+</html>
